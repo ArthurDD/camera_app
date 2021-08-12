@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Take a photo {% endblock %}
+
+{% block main%}
+    <div class="center">
+            <h2 style="margin-bottom: 40px"> Appuie sur le bouton pour prendre une photo. <span style="font-size: 14px; font-style: italic">(Une fois prise, celle-ci sera affichée en dessous)</span></h2>
+            <button type="button" class="btn" onclick="take_photo()">Prendre une photo</button>
+
+    </div>
+    <script>
+    function take_photo() {
+        $.get('{% url "main:take_photo" %}', (data) => {
+            console.log("data is: ", data)
+        })
+    }
+    </script>
+{% endblock %}
